@@ -1164,33 +1164,108 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function downloadVideo() {
-            const inputs = document.querySelectorAll('input[type="text"]');
-            let url = '';
-            
-            inputs.forEach(input => {
-                if (input.offsetParent !== null && input.value.trim()) {
-                    url = input.value.trim();
-                }
-            });
+let videoData = null;
 
-            if (!url) {
-                alert('Please paste a TikTok video link first!');
-                return;
-            }
+async function downloadVideo() {
+    const inputs = document.querySelectorAll('input[type="text"]');
+    let url = '';
+    
+    inputs.forEach(input => {
+        if (input.offsetParent !== null && input.value.trim()) {
+            url = input.value.trim();
+        }
+    });
 
-            if (!url.includes('tiktok.com')) {
-                alert('Please enter a valid TikTok URL');
-                return;
-            }
+    if (!url) {
+        alert('Please paste a TikTok video link first!');
+        return;
+    }
 
-            const options = document.getElementById('downloadOptions');
-            if (options) {
-                options.classList.add('show');
-                options.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
+    if (!url.includes('tiktok.com')) {
+        alert('Please enter a valid TikTok URL');
+        return;
+    }
+
+    // Show loading state
+    const btn = event.target;
+    const originalText = btn.textContent;
+    btn.textContent = '⏳ Processing...';
+    btn.disabled = true;
+
+    try {
+        // Call Netlify function
+        const response = await fetch('/.netlify/functions/download', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: url })
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+            alert('Error: ' + data.error);
+            return;
         }
 
+        // Store video data
+        videoData = data;
+
+        // Update download buttons
+        updateDownloadButtons(data);
+
+        // Show download options
+        const options = document.getElementById('downloadOptions');
+        if (options) {
+            options.classList.add('show');
+            options.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+    } catch (error) {
+        alert('Failed to process video. Please try again.');
+        console.error('Error:', error);
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }
+}
+
+function updateDownloadButtons(data) {
+    const optionButtons = document.querySelectorAll('.option-btn');
+    
+    if (optionButtons[0] && data.data) {
+        optionButtons[0].onclick = () => {
+            const videoUrl = data.data.play || data.data.wmplay;
+            if (videoUrl) {
+                window.open(videoUrl, '_blank');
+            } else {
+                alert('Video URL not available');
+            }
+        };
+    }
+
+    if (optionButtons[1] && data.data && data.data.music) {
+        optionButtons[1].onclick = () => {
+            window.open(data.data.music, '_blank');
+        };
+    }
+
+    if (optionButtons[2] && data.data) {
+        optionButtons[2].onclick = () => {
+            const videoUrl = data.data.play || data.data.wmplay;
+            if (videoUrl) {
+                window.open(videoUrl, '_blank');
+            }
+        };
+    }
+
+    if (optionButtons[3] && data.data && data.data.cover) {
+        optionButtons[3].onclick = () => {
+            window.open(data.data.cover, '_blank');
+        };
+    }
+}
         async function pasteFromClipboard() {
             try {
                 const text = await navigator.clipboard.readText();
