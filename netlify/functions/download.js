@@ -18,12 +18,12 @@ exports.handler = async (event, context) => {
       };
     }
 
-    // Call RapidAPI
-    const response = await fetch(`https://tiktok-download-without-watermark.p.rapidapi.com/analysis?url=${encodeURIComponent(url)}`, {
+    // Call RapidAPI (GoDownloader API)
+    const response = await fetch(`https://tiktok-download-video-no-watermark.p.rapidapi.com/api/video/info?url=${encodeURIComponent(url)}`, {
       method: 'GET',
       headers: {
         'X-RapidAPI-Key': 'a5882c9424msh2872ce25602f78dp13f528jsn4bb4e6e14104',
-        'X-RapidAPI-Host': 'tiktok-download-without-watermark.p.rapidapi.com'
+        'X-RapidAPI-Host': 'tiktok-download-video-no-watermark.p.rapidapi.com'
       }
     });
 
