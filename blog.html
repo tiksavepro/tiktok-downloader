@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - TikSave Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: #0A0118;
+            color: #F8FAFC;
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .blog-card {
+            background: rgba(26, 11, 46, 0.7);
+            border: 1px solid #3D2463;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            border-color: #FF006E;
+            transform: translateY(-8px);
+        }
+
+        .blog-card h2 {
+            color: #FF006E;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .blog-meta {
+            color: #8338EC;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-card p {
+            color: #C5B8D8;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #FF006E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .read-more:hover {
+            color: #8338EC;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blog</h1>
+
+        <div class="blog-grid">
+            <div class="blog-card">
+                <h2>How to Download TikTok Videos Without Watermark in 2025</h2>
+                <p class="blog-meta">January 18, 2025 • 5 min read</p>
+                <p>Learn the easiest way to download TikTok videos in HD quality without any watermarks. Our comprehensive guide covers everything you need to know...</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <div class="blog-card">
+                <h2>Top 10 TikTok Video Ideas That Go Viral</h2>
+                <p class="blog-meta">January 15, 2025 • 7 min read</p>
+                <p>Discover the secrets behind viral TikTok content. We analyze the top performing video types and share tips to boost your engagement...</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+
+            <div class="blog-card">
+                <h2>Is It Legal to Download TikTok Videos?</h2>
+                <p class="blog-meta">January 12, 2025 • 4 min read</p>
+                <p>Understanding copyright laws and fair use when downloading TikTok content. Learn about your rights and responsibilities...</p>
+                <a href="#" class="read-more">Read More →</a>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
