@@ -1233,36 +1233,44 @@ async function downloadVideo() {
 
 function updateDownloadButtons(data) {
     const optionButtons = document.querySelectorAll('.option-btn');
+    const videoData = data.data;
     
-    if (optionButtons[0] && data.data) {
+    if (optionButtons[0] && videoData) {
         optionButtons[0].onclick = () => {
-            const videoUrl = data.data.play || data.data.wmplay;
+            const videoUrl = videoData.video_link_nwm;
             if (videoUrl) {
                 window.open(videoUrl, '_blank');
             } else {
-                alert('Video URL not available');
+                alert('HD Video URL not available');
             }
         };
     }
 
-    if (optionButtons[1] && data.data && data.data.music) {
+    if (optionButtons[1] && videoData && videoData.music) {
         optionButtons[1].onclick = () => {
-            window.open(data.data.music, '_blank');
+            const audioUrl = videoData.music.play_url;
+            if (audioUrl) {
+                window.open(audioUrl, '_blank');
+            } else {
+                alert('Audio URL not available');
+            }
         };
     }
 
-    if (optionButtons[2] && data.data) {
+    if (optionButtons[2] && videoData) {
         optionButtons[2].onclick = () => {
-            const videoUrl = data.data.play || data.data.wmplay;
+            const videoUrl = videoData.video_link_wm;
             if (videoUrl) {
                 window.open(videoUrl, '_blank');
+            } else {
+                alert('Mobile video URL not available');
             }
         };
     }
 
-    if (optionButtons[3] && data.data && data.data.cover) {
+    if (optionButtons[3] && videoData && videoData.cover) {
         optionButtons[3].onclick = () => {
-            window.open(data.data.cover, '_blank');
+            window.open(videoData.cover, '_blank');
         };
     }
 }
