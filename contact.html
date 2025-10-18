@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TikSave Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: #0A0118;
+            color: #F8FAFC;
+            line-height: 1.8;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(26, 11, 46, 0.7);
+            border: 1px solid #3D2463;
+            border-radius: 24px;
+            padding: 60px 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 30px;
+            color: #C5B8D8;
+            text-align: center;
+        }
+
+        .contact-methods {
+            display: grid;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .contact-card {
+            background: rgba(10, 1, 24, 0.6);
+            border: 1px solid #3D2463;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            border-color: #FF006E;
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-card h3 {
+            color: #FF006E;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .contact-card a {
+            color: #8338EC;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            color: #FF006E;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #FF006E, #8338EC);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>Have questions, feedback, or need support? We'd love to hear from you!</p>
+
+        <div class="contact-methods">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email Support</h3>
+                <p><a href="mailto:support@tiksavepro.com">support@tiksavepro.com</a></p>
+                <p style="font-size: 0.9rem; color: #8338EC;">We typically respond within 24-48 hours</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💬</div>
+                <h3>General Inquiries</h3>
+                <p><a href="mailto:hello@tiksavepro.com">hello@tiksavepro.com</a></p>
+                <p style="font-size: 0.9rem; color: #8338EC;">For partnerships and collaborations</p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">🐛</div>
+                <h3>Report a Bug</h3>
+                <p><a href="mailto:bugs@tiksavepro.com">bugs@tiksavepro.com</a></p>
+                <p style="font-size: 0.9rem; color: #8338EC;">Help us improve the service</p>
+            </div>
+        </div>
+
+        <p style="margin-top: 40px;">We value your privacy and will never share your contact information with third parties.</p>
+
+        <div style="text-align: center;">
+            <a href="/" class="back-link">← Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>
