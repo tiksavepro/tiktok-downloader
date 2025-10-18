@@ -1239,40 +1239,46 @@ function updateDownloadButtons(data) {
         optionButtons[0].onclick = () => {
             const videoUrl = videoData.video_link_nwm;
             if (videoUrl) {
-                window.open(videoUrl, '_blank');
+                downloadFile(videoUrl, 'tiktok-video-hd.mp4');  // ← CHANGED
             } else {
                 alert('HD Video URL not available');
             }
         };
     }
-
     if (optionButtons[1] && videoData && videoData.music) {
         optionButtons[1].onclick = () => {
             const audioUrl = videoData.music.play_url;
             if (audioUrl) {
-                window.open(audioUrl, '_blank');
+                downloadFile(audioUrl, 'tiktok-audio.mp3');  // ← CHANGED
             } else {
                 alert('Audio URL not available');
             }
         };
     }
-
     if (optionButtons[2] && videoData) {
         optionButtons[2].onclick = () => {
             const videoUrl = videoData.video_link_wm;
             if (videoUrl) {
-                window.open(videoUrl, '_blank');
+                downloadFile(videoUrl, 'tiktok-video-mobile.mp4');  // ← CHANGED
             } else {
                 alert('Mobile video URL not available');
             }
         };
     }
-
     if (optionButtons[3] && videoData && videoData.cover) {
         optionButtons[3].onclick = () => {
-            window.open(videoData.cover, '_blank');
+            downloadFile(videoData.cover, 'tiktok-thumbnail.jpg');  // ← CHANGED
         };
     }
+}
+        function downloadFile(url, filename) {
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.target = '_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
         async function pasteFromClipboard() {
             try {
