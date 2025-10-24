@@ -1,0 +1,11 @@
+/sitemap.xml
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: all
+  Content-Type: application/xml
+
+/robots.txt
+  Content-Type: text/plain
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
